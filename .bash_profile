@@ -33,3 +33,10 @@ alias reload='source ~/.bash_profile'
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# Programming Languages
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
+# Gradle
+export GRADLE_USER_HOME=$HOME/.gradle_home
+
