@@ -27,16 +27,33 @@ alias smartsleep='sudo pmset -a hibernatemode 2'
 #alias ps='ps -ax'
 
 # refresh shell
-alias reload='source ~/.bash_profile'
+if [ "$(ps -p$$ -ocommand=)" = "-zsh" ]     # in case of zsh terminal
+then
+    alias reload='source ~/.zprofile'
+elif [ "$(ps -p$$ -ocommand=)" = "-bash" ]  # in case of bash terminal
+then
+    alias reload='source ~/.bash_profile'
+fi
 
 # git completion for branch names
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]
+then
+    . ~/.git-completion.bash
 fi
 
 # Programming Languages
 # Java
-export JAVA_HOME=`/usr/libexec/java_home -v 11`
+# if [ -f /usr/libexec/java_home ]
+# then
+#     export JAVA_HOME=/usr/libexec/java_home
+# fi
 # Gradle
 export GRADLE_USER_HOME=$HOME/.gradle_home
 
+
+# Setting PATH for Python 3.9
+PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
+export PATH
+
+alias python='python3'
+alias pip='pip3'
