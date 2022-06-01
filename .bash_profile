@@ -1,8 +1,7 @@
 # set promp format and colors
-export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]:\[\033[1;35m\]\w\[\033[0m\]$ "
+# export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]:\[\033[1;35m\]\w\[\033[0m\]$ "
 
 # ls alias for color-mode and more
-
 alias ll="ls -FGlAhp"
 # grep with color
 alias grep='grep --color=auto'
@@ -51,9 +50,30 @@ fi
 export GRADLE_USER_HOME=$HOME/.gradle_home
 
 
+# Homebrew (arm64)
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew (x86_64)
+eval "$(/usr/local/bin/brew shellenv)"
+
 # Setting PATH for Python 3.9
 PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 export PATH
 
 alias python='python3'
 alias pip='pip3'
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# pyenv-virtualenv (for auto-activation of virtualenvs)
+eval "$(pyenv virtualenv-init -)"
+
+# Nodejs@16 (arm64)
+# export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+# Nodejs@10 (x86_64)
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/node@10/lib"
+export CPPFLAGS="-I/usr/local/opt/node@10/include"
+
