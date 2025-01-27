@@ -1,5 +1,5 @@
 # debugging
-echo "Sourcing $HOME/gitws/bash_profile/.bash_profile"
+echo "Sourcing $HOME/gitws/bash_profile/bash_profile"
 
 # set promp format and colors
 # export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]:\[\033[1;35m\]\w\[\033[0m\]$ "
