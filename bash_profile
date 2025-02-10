@@ -1,5 +1,5 @@
-# debugging
-echo "Sourcing $HOME/gitws/bash_profile/bash_profile"
+# debugging, prints this script's location
+echo "sourcing $(dirname "$(readlink -f "$0")")"
 
 # set promp format and colors
 # export PS1="\[\033[1;34m\]\!\[\033[0m\] \[\033[1;35m\]\u\[\033[0m\]:\[\033[1;35m\]\w\[\033[0m\]$ "
@@ -175,7 +175,7 @@ jq_new_example() {
     # copy the file to the new filename
     cp "$examples_dir/$last_input" "$examples_dir/$new_input"
     echo "Copied $examples_dir/$last_input to $examples_dir/$new_input"
-    
+
     cp "$examples_dir/$last_output" "$examples_dir/$new_output"
     echo "Copied $examples_dir/$last_output to $examples_dir/$new_output"
 }
